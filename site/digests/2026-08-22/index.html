@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Digest du 22 août — veille Caroline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f6f6;
+    --surface: #ffffff;
+    --text: #1b2027;
+    --text-muted: #5b6470;
+    --border: #dde1e3;
+    --accent: #0f6e6e;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f1ef;
+    --vote-no-bg: #f1f2f2;
+    --vote-no-text: #5b6470;
+    --chip-ia-bg: #efeafb; --chip-ia-text: #5b3fc4;
+    --chip-growth-bg: #fdf0e2; --chip-growth-text: #a05a12;
+    --chip-gdp-bg: #e6f0fa; --chip-gdp-text: #21598f;
+    --chip-nocode-bg: #e6f6ee; --chip-nocode-text: #1f7a4d;
+    --shadow: 0 1px 2px rgba(20, 25, 30, 0.04), 0 4px 14px rgba(20, 25, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12161a;
+      --surface: #191e23;
+      --text: #e7ebee;
+      --text-muted: #9aa4ac;
+      --border: #2a3137;
+      --accent: #4fd1c5;
+      --accent-ink: #0b1a18;
+      --accent-soft: rgba(79, 209, 197, 0.14);
+      --vote-no-bg: #232a30;
+      --vote-no-text: #9aa4ac;
+      --chip-ia-bg: #241f38; --chip-ia-text: #b6a4f2;
+      --chip-growth-bg: #332512; --chip-growth-text: #e8ac6b;
+      --chip-gdp-bg: #16283a; --chip-gdp-text: #8fbfe8;
+      --chip-nocode-bg: #142a1e; --chip-nocode-text: #7fd3a5;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.25);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.5;
+    padding: 2.5rem 1.25rem 5rem;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+
+  header.page { margin-bottom: 2.25rem; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .lede { color: var(--text-muted); font-size: 0.98rem; max-width: 60ch; margin: 0; }
+  .lede b { color: var(--text); font-weight: 600; }
+
+  .progress {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .progress .bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress .bar > span { display: block; height: 100%; background: var(--accent); width: 0%; transition: width 0.35s ease; }
+
+  ol.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+
+  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem 1.3rem; box-shadow: var(--shadow); }
+  .item[data-vote="utile"] { border-color: var(--accent); }
+  .item[data-vote="pas-utile"] { opacity: 0.62; }
+
+  .meta-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.55rem; }
+  .chip { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.03em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 999px; font-weight: 500; }
+  .chip.ia { background: var(--chip-ia-bg); color: var(--chip-ia-text); }
+  .chip.growth { background: var(--chip-growth-bg); color: var(--chip-growth-text); }
+  .chip.gdp { background: var(--chip-gdp-bg); color: var(--chip-gdp-text); }
+  .chip.nocode { background: var(--chip-nocode-bg); color: var(--chip-nocode-text); }
+
+  .method { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--text-muted); }
+  .date { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  h2 { font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 1.22rem; line-height: 1.28; margin: 0 0 0.4rem; text-wrap: balance; }
+  .source-line { font-size: 0.82rem; margin: 0 0 0.7rem; }
+  .source-line a { color: var(--accent); text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+
+  .summary { margin: 0 0 0.6rem; font-size: 0.95rem; }
+  .why { font-size: 0.87rem; color: var(--text-muted); margin: 0 0 1.05rem; padding-left: 0.75rem; border-left: 2px solid var(--border); }
+  .why b { color: var(--text); font-weight: 600; }
+
+  .votes { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  .vote-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.42rem 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .vote-btn:hover { border-color: var(--accent); }
+  .vote-btn.yes[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .vote-btn.no[aria-pressed="true"] { background: var(--vote-no-bg); border-color: var(--border); color: var(--vote-no-text); text-decoration: line-through; }
+  .vote-hint { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--text-muted); }
+  .vote-hint[hidden] { display: none; }
+
+  .comment-wrap { margin-top: 0.9rem; }
+  .comment-wrap[hidden] { display: none; }
+  .comment-wrap label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+  }
+  .comment-wrap textarea {
+    width: 100%;
+    min-height: 3.2rem;
+    resize: vertical;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 0.7rem;
+  }
+  .comment-wrap textarea::placeholder { color: var(--text-muted); }
+
+  .send-bar {
+    position: sticky;
+    bottom: 1.25rem;
+    margin-top: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .send-bar p { margin: 0; font-size: 0.83rem; color: var(--text-muted); flex: 1; min-width: 200px; }
+  .send-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.3rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .send-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+  footer.page {
+    max-width: 720px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer.page b { color: var(--text); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="page">
+    <p class="eyebrow">Veille · no-code · growth · gestion de projet · IA</p>
+    <h1>Digest du 22 août 2026</h1>
+    <p class="lede">8 sujets. <b>Utile</b> si tu le retiendrais pour un article, <b>pas utile</b> sinon — un commentaire facultatif apparaît après ton vote. Une fois fini, clique "Envoyer mes retours" en bas : ça ouvre une issue GitHub pré-remplie sur le repo, à valider d'un clic. C'est ce que relit la rétro hebdomadaire pour ajuster les sources et la ligne éditoriale.</p>
+    <div class="progress">
+      <span id="progress-label">0 / 8 votés</span>
+      <span class="bar"><span id="progress-bar"></span></span>
+    </div>
+  </header>
+
+  <ol class="items" id="items">
+
+    <li class="item" data-vote="" data-item-id="ai-act-art50" data-domain="IA" data-title="Entrée en application de l'article 50 de l'AI Act européen">
+      <div class="meta-row">
+        <span class="chip ia">IA</span>
+        <span class="method">recherche web</span>
+        <span class="date">02.08.2026</span>
+      </div>
+      <h2>Entrée en application de l'article 50 de l'AI Act européen</h2>
+      <p class="source-line">Toute l'Europe — <a href="https://www.touteleurope.eu/economie-et-social/intelligence-artificielle-ce-qui-change-vraiment-le-2-aout-2026-avec-le-reglement-europeen/" target="_blank" rel="noopener">touteleurope.eu</a></p>
+      <p class="summary">Depuis le 2 août 2026, l'article 50 du règlement européen sur l'IA impose de nouvelles obligations de transparence : informer un utilisateur qu'il interagit avec une IA, rendre identifiable un contenu généré ou modifié par IA, et renforcer le contrôle de la Commission européenne sur les modèles à usage général (GPAI).</p>
+      <p class="why"><b>Pourquoi notable —</b> un texte de loi qui entre concrètement en vigueur, pas une annonce : bon sujet pour expliquer ce qui change réellement, avec du recul sur ce qui est déjà appliqué vs encore flou.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="bubble-ai-agent" data-domain="No-code · IA" data-title="Bubble : agent IA capable de construire des apps mobiles natives sans supervision">
+      <div class="meta-row">
+        <span class="chip nocode">No-code · IA</span>
+        <span class="method">recherche web</span>
+        <span class="date">08.2026</span>
+      </div>
+      <h2>Bubble : agent IA capable de construire des apps mobiles natives sans supervision</h2>
+      <p class="source-line">Bubble Blog (source primaire) — <a href="https://bubble.io/blog/" target="_blank" rel="noopener">bubble.io/blog</a></p>
+      <p class="summary">L'agent IA de Bubble peut désormais construire et modifier des applications mobiles natives, configurer des connexions API et corriger des erreurs sans intervention manuelle. La plateforme ajoute aussi des opérateurs de liste et une gestion des branchements/boucles dans son moteur de workflow.</p>
+      <p class="why"><b>Pourquoi notable —</b> exemple direct du recoupement IA / no-code. Source primaire (l'éditeur) : à traiter avec distance, ce n'est pas un avis indépendant.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="fb-moderation" data-domain="Growth" data-title="Facebook annoncerait la suppression de jusqu'à 90% de sa modération humaine">
+      <div class="meta-row">
+        <span class="chip growth">Growth</span>
+        <span class="method">recherche web</span>
+        <span class="date">08.2026</span>
+      </div>
+      <h2>Facebook annoncerait la suppression de jusqu'à 90% de sa modération humaine</h2>
+      <p class="source-line">Agrégation presse marketing — <a href="https://www.blogdumoderateur.com/ia/" target="_blank" rel="noopener">blogdumoderateur.com</a></p>
+      <p class="summary">Meta remplacerait une large part de la modération humaine sur Facebook par de la modération automatisée. Le chiffre de 90% circule dans plusieurs médias marketing, sans source primaire unique clairement identifiée à ce stade.</p>
+      <p class="why"><b>Pourquoi notable —</b> impact direct pour le growth sur Facebook (délais de modération, faux positifs sur les comptes pub). À vérifier via une source primaire avant rédaction.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="gdp-outils-tendance" data-domain="Gestion de projet" data-title="Tendance 2026 : alignement méthodologique et multiplication des outils">
+      <div class="meta-row">
+        <span class="chip gdp">Gestion de projet</span>
+        <span class="method">recherche web</span>
+        <span class="date">2026 (fond)</span>
+      </div>
+      <h2>Tendance 2026 : alignement méthodologique et multiplication des outils</h2>
+      <p class="source-line">Abraxio — <a href="https://abraxio.com/gestion-de-projet-quelles-tendances-en-2026/" target="_blank" rel="noopener">abraxio.com</a></p>
+      <p class="summary">Selon Gartner, plus de 70% des grands projets de transformation utilisent au moins trois outils différents en parallèle (Jira, MS Project, Notion...). La tendance identifiée va vers l'harmonisation méthodologique plutôt que l'ajout d'outils, avec une pression croissante vers des objectifs de durabilité.</p>
+      <p class="why"><b>Pourquoi notable —</b> angle possible sur la fragmentation des outils comme friction réelle. Article de tendance, pas une actualité chaude — illustre le manque de sources datées en gestion de projet.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="webflow-editor" data-domain="No-code" data-title="Webflow retire son éditeur historique le 4 août 2026">
+      <div class="meta-row">
+        <span class="chip nocode">No-code</span>
+        <span class="method">recherche web</span>
+        <span class="date">04.08.2026</span>
+      </div>
+      <h2>Webflow retire son éditeur historique le 4 août 2026</h2>
+      <p class="source-line">Startup Edition — <a href="https://blog.mean.ceo/webflow-news-august-2026/" target="_blank" rel="noopener">blog.mean.ceo</a></p>
+      <p class="summary">Webflow a mis fin à son éditeur historique ("Legacy Editor"), poussant les équipes encore dessus à revoir permissions et flux de publication. La plateforme se repositionne comme un système marketing de site web, en amont de sa conférence annuelle (1-3 septembre 2026).</p>
+      <p class="why"><b>Pourquoi notable —</b> actu datée et concrète, avec un impact direct pour les utilisateurs actuels — bon candidat pour un article pratique.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="lenny-grok-test" data-domain="IA · Growth" data-title="Lenny Rachitsky teste Grok Bot, Grok 4.6 et Cursor Origin — verdict mitigé">
+      <div class="meta-row">
+        <span class="chip ia">IA · Growth</span>
+        <span class="method">flux RSS</span>
+        <span class="date">18.08.2026</span>
+      </div>
+      <h2>Lenny Rachitsky teste Grok Bot, Grok 4.6 et Cursor Origin — verdict mitigé</h2>
+      <p class="source-line">Lenny's Newsletter — <a href="https://www.lennysnewsletter.com/p/i-tested-grok-bot-grok-46-and-cursor" target="_blank" rel="noopener">lennysnewsletter.com</a></p>
+      <p class="summary">Claire Vo juge le connecteur multi-comptes de Grok Bot réellement utile mais préfère les outils OpenAI pour son travail principal. Cursor Origin, qui redessine GitHub autour d'agents, ne la convainc pas encore. Grok 4.6 la surprend positivement, se plaçant honorablement face à GPT-5.6 Sol et Claude Sonnet 5.</p>
+      <p class="why"><b>Pourquoi notable —</b> avis tranché et testé par la pratique plutôt qu'un relais d'annonce — correspond exactement à l'angle "critique, avis affirmé" de la ligne éditoriale.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="bubble-ai-explainer" data-domain="No-code · IA" data-title="Bubble AI : générer une application complète dans l'éditeur visuel à partir d'un prompt">
+      <div class="meta-row">
+        <span class="chip nocode">No-code · IA</span>
+        <span class="method">flux RSS</span>
+        <span class="date">19.08.2026</span>
+      </div>
+      <h2>Bubble AI : générer une application complète dans l'éditeur visuel à partir d'un prompt</h2>
+      <p class="source-line">Bubble Blog — <a href="https://bubble.io/blog/what-is-bubble-ai/" target="_blank" rel="noopener">bubble.io/blog</a></p>
+      <p class="summary">Bubble AI génère des applications complètes directement dans l'éditeur visuel — pages, workflows et base de données inclus — plutôt que du code brut. Les utilisateurs affinent ensuite visuellement ou par requêtes conversationnelles, avec des données d'exemple générées automatiquement pour tester.</p>
+      <p class="why"><b>Pourquoi notable —</b> exemple concret et à jour du recoupement no-code/IA. Source primaire : à traiter avec distance mais l'info factuelle est vérifiable.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="the-batch-367" data-domain="IA" data-title="The Batch : watermarks Anthropic, Grok 4.6, poids ouverts de Qwen3.8-Max">
+      <div class="meta-row">
+        <span class="chip ia">IA</span>
+        <span class="method">fetch direct</span>
+        <span class="date">21.08.2026</span>
+      </div>
+      <h2>The Batch : watermarks Anthropic, Grok 4.6, poids ouverts de Qwen3.8-Max</h2>
+      <p class="source-line">The Batch, DeepLearning.AI — <a href="https://www.deeplearning.ai/the-batch/issue-367" target="_blank" rel="noopener">deeplearning.ai/the-batch</a></p>
+      <p class="summary">xAI lance Grok 4.6 (1,5 billion de paramètres, orienté travail agentique). Anthropic déploie des filigranes invisibles dans Claude pour marquer le contenu généré par IA, en conformité avec la réglementation européenne — ce qui suscite des critiques sur la vie privée. Alibaba publie les poids de Qwen3.8-Max, sa première sortie en poids ouverts pour un modèle "Max".</p>
+      <p class="why"><b>Pourquoi notable —</b> trois sujets IA chauds et vérifiables en un seul numéro — plusieurs angles d'articles possibles.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+  </ol>
+
+  <div class="send-bar">
+    <p>Rien n'est envoyé tant que tu ne cliques pas — ça ouvre une issue GitHub pré-remplie sur <code>CaroRima/projet-newsletter</code>, à valider toi-même.</p>
+    <a class="send-btn" id="send-btn" href="#" target="_blank" rel="noopener">Envoyer mes retours →</a>
+  </div>
+
+  <footer class="page">
+    <p><b>Ce que deviennent tes votes —</b> le clic "Envoyer" ouvre une issue GitHub avec le label <code>feedback-digest</code> résumant tes votes et commentaires. La boucle de rétro hebdomadaire les relit avec <code>logs/</code> et <code>feedback/</code> pour ajuster <code>docs/SOURCES.md</code> et <code>docs/EDITORIAL.md</code>. Le drapeau <code>flux RSS</code> / <code>fetch direct</code> / <code>recherche web</code> indique comment le sujet a été trouvé — utile pour voir si tu votes différemment selon la méthode.</p>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var STORAGE_KEY = 'veille-digest-2026-08-22';
+    var REPO = 'CaroRima/projet-newsletter';
+    var items = document.getElementById('items');
+    var itemEls = Array.prototype.slice.call(items.querySelectorAll('.item'));
+    var total = itemEls.length;
+    var progressLabel = document.getElementById('progress-label');
+    var progressBar = document.getElementById('progress-bar');
+    var sendBtn = document.getElementById('send-btn');
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+    function saveState(state) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    var state = loadState();
+
+    function applyStateToDom() {
+      itemEls.forEach(function (item) {
+        var id = item.dataset.itemId;
+        var entry = state[id];
+        if (!entry) return;
+        item.dataset.vote = entry.vote || '';
+        item.querySelectorAll('.vote-btn').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.voteValue === entry.vote));
+        });
+        var hint = item.querySelector('.vote-hint');
+        var commentWrap = item.querySelector('.comment-wrap');
+        var textarea = item.querySelector('textarea');
+        if (entry.vote) {
+          hint.hidden = false;
+          commentWrap.hidden = false;
+        }
+        if (entry.comment) textarea.value = entry.comment;
+      });
+    }
+
+    function updateProgress() {
+      var voted = itemEls.filter(function (item) {
+        return item.dataset.vote === 'utile' || item.dataset.vote === 'pas-utile';
+      }).length;
+      progressLabel.textContent = voted + ' / ' + total + ' votés';
+      progressBar.style.width = Math.round((voted / total) * 100) + '%';
+      sendBtn.href = buildIssueUrl();
+    }
+
+    function buildIssueUrl() {
+      var utiles = [];
+      var pasUtiles = [];
+      var nonVotes = [];
+
+      itemEls.forEach(function (item) {
+        var id = item.dataset.itemId;
+        var entry = state[id] || {};
+        var title = item.dataset.title;
+        var domain = item.dataset.domain;
+        var line = '- **' + title + '** (' + domain + ')';
+        if (entry.comment && entry.comment.trim()) {
+          line += '\n  > ' + entry.comment.trim().replace(/\n/g, '\n  > ');
+        }
+        if (entry.vote === 'utile') utiles.push(line);
+        else if (entry.vote === 'pas-utile') pasUtiles.push(line);
+        else nonVotes.push('- ' + title);
+      });
+
+      var body = '## Feedback digest — 22 août 2026\n\n';
+      body += '### 👍 Utile (' + utiles.length + ')\n' + (utiles.length ? utiles.join('\n') : '_aucun_') + '\n\n';
+      body += '### 👎 Pas utile (' + pasUtiles.length + ')\n' + (pasUtiles.length ? pasUtiles.join('\n') : '_aucun_') + '\n\n';
+      if (nonVotes.length) {
+        body += '### Non voté (' + nonVotes.length + ')\n' + nonVotes.join('\n') + '\n';
+      }
+
+      var params = new URLSearchParams({
+        title: 'Feedback digest — 2026-08-22',
+        body: body,
+        labels: 'feedback-digest'
+      });
+      return 'https://github.com/' + REPO + '/issues/new?' + params.toString();
+    }
+
+    items.addEventListener('click', function (e) {
+      var btn = e.target.closest('.vote-btn');
+      if (!btn) return;
+      var item = btn.closest('.item');
+      var id = item.dataset.itemId;
+      var value = btn.dataset.voteValue;
+      var current = (state[id] && state[id].vote) || '';
+      var newValue = current === value ? '' : value;
+
+      state[id] = state[id] || {};
+      state[id].vote = newValue;
+      saveState(state);
+
+      item.dataset.vote = newValue;
+      item.querySelectorAll('.vote-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.voteValue === newValue));
+      });
+      var hint = item.querySelector('.vote-hint');
+      var commentWrap = item.querySelector('.comment-wrap');
+      hint.hidden = newValue === '';
+      commentWrap.hidden = newValue === '';
+      updateProgress();
+    });
+
+    items.addEventListener('input', function (e) {
+      var textarea = e.target.closest('textarea');
+      if (!textarea) return;
+      var item = textarea.closest('.item');
+      var id = item.dataset.itemId;
+      state[id] = state[id] || {};
+      state[id].comment = textarea.value;
+      saveState(state);
+      sendBtn.href = buildIssueUrl();
+    });
+
+    applyStateToDom();
+    updateProgress();
+  })();
+</script>
+</body>
+</html>
