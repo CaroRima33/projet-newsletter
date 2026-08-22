@@ -11,18 +11,24 @@ boucles qui tournent en cron, produisent, et s'améliorent par les retours de
 Caroline. Humain dans la boucle à chaque étape : rien ne se publie sans
 validation explicite.
 
-Statut actuel (2026-08-22) : structure posée, 1 collecte manuelle faite,
-méthode RSS validée, page de vote + boucle de feedback en place. Repo poussé
-sur GitHub (`CaroRima33/projet-newsletter`, privé) — en cours de câblage du cron
-cloud quotidien (envoi 08:30 Paris).
+Statut actuel (2026-08-22) : collecte quotidienne en cron réel (VPS,
+`crontab -l`), testée de bout en bout avec succès. Page de vote + commentaire
+sur GitHub Pages, feedback capturé via issues GitHub. Boucle de rétro
+hebdomadaire en cours de mise en place (cron posé, pas encore de premier run
+avec assez de données pour juger). Boucle production (brouillons d'articles)
+pas encore construite.
 
 ## Où est quoi
 
 - `docs/EDITORIAL.md` — ligne éditoriale (ton, angle, ce qui est bon/mauvais).
   Le fichier le plus important : c'est lui que la boucle de rétro fait évoluer.
 - `docs/SOURCES.md` — sources de veille avec score de qualité par source.
-- `.claude/skills/` — une skill par tâche récurrente. `veille-collecte` existe ;
-  `veille-digest`, `rediger-brouillon`, `retro-hebdo` viennent après.
+- `.claude/skills/` — une skill par tâche récurrente. `veille-collecte` et
+  `retro-hebdo` existent ; `rediger-brouillon` (boucle production) vient
+  après.
+- `.claude/settings.json` — permissions du cron non-interactif (allowlist
+  scopée : curl, git, gh, python3, lecture/écriture fichiers — pas de bypass
+  général). Versionné, à ajuster si un run cron bloque sur un outil manquant.
 - `prompts/` — prompts exacts lancés par les crons, versionnés séparément des
   skills pour pouvoir être ajustés sans toucher la logique générale.
 - `inbox/` — sorties des boucles pour Caroline : digests markdown
@@ -43,10 +49,13 @@ cloud quotidien (envoi 08:30 Paris).
 2. **Production** (2-3×/semaine, pas encore construite) — prend les sujets
    marqués "à traiter" dans un digest, rédige un brouillon vulgarisé dans
    `inbox/`. Rien ne se publie automatiquement.
-3. **Rétro hebdomadaire** (pas encore construite, la plus importante) — relit
-   les logs et `feedback/` de la semaine, compare brouillons produits vs
-   versions publiées par Caroline, propose des modifications concrètes de
-   `docs/EDITORIAL.md`, `docs/SOURCES.md` et `prompts/` en commit git séparé.
+3. **Rétro hebdomadaire** (en place le 2026-08-22, la plus importante) — relit
+   les issues `feedback-digest`, `feedback/` et `logs/` de la semaine, propose
+   des modifications concrètes de `docs/EDITORIAL.md`, `docs/SOURCES.md` et
+   `prompts/` via une **Pull Request** (jamais un push direct sur `main`) que
+   Caroline relit et merge elle-même. Détails : `.claude/skills/retro-hebdo/SKILL.md`.
+   La comparaison brouillons vs publié n'est pas encore possible — dépend de
+   la boucle production, pas construite.
 
 ## Le contrat
 
@@ -82,26 +91,36 @@ session) et ouvre une **issue GitHub pré-remplie** (`.../issues/new?...`,
 label `feedback-digest`) que Caroline valide d'un clic. Aucun token ni secret
 côté page — c'est elle qui soumet, avec son propre compte GitHub.
 
-La skill `retro-hebdo` (pas encore construite) devra lire les issues
-`feedback-digest` de la semaine (`gh issue list --label feedback-digest`) en
-plus de `feedback/` et `logs/` pour ajuster `docs/SOURCES.md` et
-`docs/EDITORIAL.md`.
+La skill `retro-hebdo` lit ces issues (`gh issue list --label feedback-digest`)
+en plus de `feedback/` et `logs/` pour ajuster `docs/SOURCES.md` et
+`docs/EDITORIAL.md` — voir `.claude/skills/retro-hebdo/SKILL.md`.
+
+**Important** : voter sur la page ne suffit pas — il faut cliquer "Envoyer mes
+retours" en bas de page pour que le vote devienne une vraie issue GitHub
+(sinon il reste seulement dans le `localStorage` du navigateur, invisible à
+la rétro).
 
 ## Hébergement et automatisation
 
-- Repo : `https://github.com/CaroRima33/projet-newsletter` (privé).
+- Repo : `https://github.com/CaroRima33/projet-newsletter` — **public**
+  (bascule décidée le 2026-08-22 : le plan GitHub de Caroline ne permet pas
+  Pages sur repo privé). Digest et commentaires de feedback (issues) sont
+  donc visibles par quiconque a le lien.
 - Pages : déployée via GitHub Actions (`.github/workflows/pages.yml`), pas via
-  branche/dossier — évite le traitement Jekyll par défaut et les limites de
-  dossier de Pages classique. **Point à vérifier** : GitHub Pages sur un repo
-  privé nécessite un plan payant (Pro/Team/Enterprise) — sinon Pages refuse de
-  se déployer tant que le repo reste privé ou le plan ne couvre pas Pages.
-- Cron quotidien : géré par un routine cloud (`claude.ai/code/routines`), pas
-  par `CronCreate` (limité à la session, 7 jours max) — le routine clone le
-  repo GitHub à chaque run, donc tout ce qui doit être lu par le cron
-  (`docs/`, `.claude/skills/`, `prompts/`) doit être poussé sur `main`.
-- Créneau : 08:30 heure de Paris = 06:30 UTC en heure d'été (cron
-  `30 6 * * *`). À ajuster manuellement de ±1h aux changements d'heure
-  (dernier dimanche de mars et d'octobre) puisque le cron du routine est fixe
-  en UTC.
-- Clé Resend : stockée dans la config du routine cloud (accepté par Caroline
-  le 2026-08-22), pas dans le repo.
+  branche/dossier — évite le traitement Jekyll par défaut.
+- **Cron réel sur VPS** (`crontab -l` en tant que root), pas un mécanisme lié
+  à une session Claude — persistant, `cron.service` actif au démarrage du
+  système. `claude` CLI est authentifié localement (`~/.claude/.credentials.json`),
+  donc pas de facturation API séparée. Le workspace `/root/projects/veille`
+  doit rester marqué "trusted" (`hasTrustDialogAccepted: true` dans
+  `/root/.claude.json`) pour que `.claude/settings.json` s'applique en mode
+  non-interactif — sinon le cron tourne sans l'allowlist et peut bloquer.
+- **Collecte** : `30 6 * * *` UTC = 08:30 Paris en heure d'été. À décaler
+  manuellement de ±1h aux changements d'heure (dernier dimanche de mars et
+  d'octobre) puisque le cron est fixe en UTC.
+- **Rétro** : dimanche 07:00 UTC (~09:00 Paris).
+- Clé Resend : dans `.env` à la racine du repo sur le VPS (gitignoré). Le cron
+  la lit avec l'outil Read, ne la commite jamais.
+- On a considéré un routine cloud (`claude.ai/code/routines`) et GitHub
+  Actions avec clé API Anthropic pour le cron — écartés au profit du cron VPS
+  local, plus simple ici puisque l'infra persistante existait déjà.
