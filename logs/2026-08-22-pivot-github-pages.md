@@ -17,7 +17,7 @@
   GitHub Actions, pas via branche/dossier — évite Jekyll), `site/.nojekyll`,
   `CLAUDE.md`, `.claude/skills/veille-collecte/SKILL.md`,
   `prompts/veille-collecte.md`.
-- **Bloquant identifié** : le repo `CaroRima/projet-newsletter` est privé —
+- **Bloquant identifié** : le repo `CaroRima33/projet-newsletter` est privé —
   GitHub Pages sur un repo privé nécessite un plan payant (Pro/Team/
   Enterprise). Pas encore vérifié quel plan a Caroline. `gh` CLI installé
   localement pour pousser le repo et vérifier ; authentification en attente

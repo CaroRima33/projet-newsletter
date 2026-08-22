@@ -13,7 +13,7 @@ validation explicite.
 
 Statut actuel (2026-08-22) : structure posée, 1 collecte manuelle faite,
 méthode RSS validée, page de vote + boucle de feedback en place. Repo poussé
-sur GitHub (`CaroRima/projet-newsletter`, privé) — en cours de câblage du cron
+sur GitHub (`CaroRima33/projet-newsletter`, privé) — en cours de câblage du cron
 cloud quotidien (envoi 08:30 Paris).
 
 ## Où est quoi
@@ -89,7 +89,7 @@ plus de `feedback/` et `logs/` pour ajuster `docs/SOURCES.md` et
 
 ## Hébergement et automatisation
 
-- Repo : `https://github.com/CaroRima/projet-newsletter` (privé).
+- Repo : `https://github.com/CaroRima33/projet-newsletter` (privé).
 - Pages : déployée via GitHub Actions (`.github/workflows/pages.yml`), pas via
   branche/dossier — évite le traitement Jekyll par défaut et les limites de
   dossier de Pages classique. **Point à vérifier** : GitHub Pages sur un repo

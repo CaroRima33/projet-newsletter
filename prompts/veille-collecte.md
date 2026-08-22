@@ -16,7 +16,7 @@ correspondance avec l'heure de Paris.
 
 ```
 Lance la collecte de veille du jour avec la skill veille-collecte, dans le
-repo CaroRima/projet-newsletter (branche main).
+repo CaroRima33/projet-newsletter (branche main).
 
 Fenêtre : dernières 24h (ou depuis le dernier digest dans inbox/digests/ s'il
 est plus récent que 24h).
