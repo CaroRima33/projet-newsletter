@@ -46,7 +46,7 @@ sont produits séparément par la boucle production, à partir des sujets marqu�
    - Domaine(s) concerné(s)
    - Source(s), avec URL réelle
    - Résumé en 2-3 phrases, ton académique-neutre, acronymes définis
-   - Pourquoi c'est notable (angle possible pour un futur article)
+   - Pourquoi c'est intéressant (angle possible pour un futur article)
    - Statut : `[ ] à traiter` — case que Caroline coche pour la boucle production
 6. Écrire le digest dans `inbox/digests/YYYY-MM-DD.md`.
 7. Générer la page jumelle statique `site/digests/YYYY-MM-DD/index.html` —
