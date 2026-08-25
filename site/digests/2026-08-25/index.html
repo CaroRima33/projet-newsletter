@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Digest du 25 août — veille Caroline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f6f6;
+    --surface: #ffffff;
+    --text: #1b2027;
+    --text-muted: #5b6470;
+    --border: #dde1e3;
+    --accent: #0f6e6e;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f1ef;
+    --vote-no-bg: #f1f2f2;
+    --vote-no-text: #5b6470;
+    --chip-ia-bg: #efeafb; --chip-ia-text: #5b3fc4;
+    --chip-growth-bg: #fdf0e2; --chip-growth-text: #a05a12;
+    --chip-gdp-bg: #e6f0fa; --chip-gdp-text: #21598f;
+    --chip-nocode-bg: #e6f6ee; --chip-nocode-text: #1f7a4d;
+    --shadow: 0 1px 2px rgba(20, 25, 30, 0.04), 0 4px 14px rgba(20, 25, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12161a;
+      --surface: #191e23;
+      --text: #e7ebee;
+      --text-muted: #9aa4ac;
+      --border: #2a3137;
+      --accent: #4fd1c5;
+      --accent-ink: #0b1a18;
+      --accent-soft: rgba(79, 209, 197, 0.14);
+      --vote-no-bg: #232a30;
+      --vote-no-text: #9aa4ac;
+      --chip-ia-bg: #241f38; --chip-ia-text: #b6a4f2;
+      --chip-growth-bg: #332512; --chip-growth-text: #e8ac6b;
+      --chip-gdp-bg: #16283a; --chip-gdp-text: #8fbfe8;
+      --chip-nocode-bg: #142a1e; --chip-nocode-text: #7fd3a5;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.25);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.5;
+    padding: 2.5rem 1.25rem 5rem;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+
+  header.page { margin-bottom: 2.25rem; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .lede { color: var(--text-muted); font-size: 0.98rem; max-width: 60ch; margin: 0; }
+  .lede b { color: var(--text); font-weight: 600; }
+
+  .progress {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .progress .bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress .bar > span { display: block; height: 100%; background: var(--accent); width: 0%; transition: width 0.35s ease; }
+
+  ol.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+
+  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem 1.3rem; box-shadow: var(--shadow); }
+  .item[data-vote="utile"] { border-color: var(--accent); }
+  .item[data-vote="pas-utile"] { opacity: 0.62; }
+
+  .meta-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.55rem; }
+  .chip { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.03em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 999px; font-weight: 500; }
+  .chip.ia { background: var(--chip-ia-bg); color: var(--chip-ia-text); }
+  .chip.growth { background: var(--chip-growth-bg); color: var(--chip-growth-text); }
+  .chip.gdp { background: var(--chip-gdp-bg); color: var(--chip-gdp-text); }
+  .chip.nocode { background: var(--chip-nocode-bg); color: var(--chip-nocode-text); }
+
+  .method { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--text-muted); }
+  .date { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  h2 { font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 1.22rem; line-height: 1.28; margin: 0 0 0.4rem; text-wrap: balance; }
+  .source-line { font-size: 0.82rem; margin: 0 0 0.7rem; }
+  .source-line a { color: var(--accent); text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+
+  .summary { margin: 0 0 0.6rem; font-size: 0.95rem; }
+  .why { font-size: 0.87rem; color: var(--text-muted); margin: 0 0 1.05rem; padding-left: 0.75rem; border-left: 2px solid var(--border); }
+  .why b { color: var(--text); font-weight: 600; }
+
+  .votes { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  .vote-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.42rem 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .vote-btn:hover { border-color: var(--accent); }
+  .vote-btn.yes[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .vote-btn.no[aria-pressed="true"] { background: var(--vote-no-bg); border-color: var(--border); color: var(--vote-no-text); text-decoration: line-through; }
+  .vote-hint { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--text-muted); }
+  .vote-hint[hidden] { display: none; }
+
+  .comment-wrap { margin-top: 0.9rem; }
+  .comment-wrap[hidden] { display: none; }
+  .comment-wrap label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+  }
+  .comment-wrap textarea {
+    width: 100%;
+    min-height: 3.2rem;
+    resize: vertical;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 0.7rem;
+  }
+  .comment-wrap textarea::placeholder { color: var(--text-muted); }
+
+  .send-bar {
+    position: sticky;
+    bottom: 1.25rem;
+    margin-top: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .send-bar p { margin: 0; font-size: 0.83rem; color: var(--text-muted); flex: 1; min-width: 200px; }
+  .send-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.3rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .send-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+  footer.page {
+    max-width: 720px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer.page b { color: var(--text); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="page">
+    <p class="eyebrow">Veille · no-code · growth · gestion de projet · IA</p>
+    <h1>Digest du 25 août 2026</h1>
+    <p class="lede">1 sujet, issu de Lenny's Newsletter (les autres sources n'ont rien produit de neuf ce jour, détail dans le digest). <b>Utile</b> si tu le retiendrais pour un article, <b>pas utile</b> sinon — un commentaire facultatif apparaît après ton vote. Une fois fini, clique "Envoyer mes retours" en bas : ça ouvre une issue GitHub pré-remplie sur le repo, à valider d'un clic. C'est ce que relit la rétro hebdomadaire pour ajuster les sources et la ligne éditoriale.</p>
+    <div class="progress">
+      <span id="progress-label">0 / 1 votés</span>
+      <span class="bar"><span id="progress-bar"></span></span>
+    </div>
+  </header>
+
+  <ol class="items" id="items">
+
+    <li class="item" data-vote="" data-item-id="lenny-devin-20k" data-domain="IA · Growth · Gestion de projet" data-title="Un fondateur solo dépense 20 000 $ en un mois sur l'agent IA Devin">
+      <div class="meta-row">
+        <span class="chip ia">IA · Growth · Gestion de projet</span>
+        <span class="method">flux RSS</span>
+        <span class="date">24.08.2026</span>
+      </div>
+      <h2>Un fondateur solo dépense 20 000 $ en un mois sur l'agent IA Devin</h2>
+      <p class="source-line">Lenny's Newsletter — <a href="https://www.lennysnewsletter.com/p/i-spent-20000-on-devin-in-a-month" target="_blank" rel="noopener">lennysnewsletter.com</a></p>
+      <p class="summary">Ryan Carson, fondateur solo d'Untangle (SaaS pour cabinets d'avocats en droit de la famille), détaille comment il a dépensé 20 000 $ en un mois sur Devin (agent IA de Cognition), en faisant tourner jusqu'à 15 agents en parallèle organisés via des dossiers et une liste manuscrite — traitant jusqu'à 40 pull requests par jour sans équipe QA. Il conclut que « plus de résultats IA ne crée pas un meilleur produit » et recommande d'optimiser la valeur produite plutôt que le volume.</p>
+      <p class="why"><b>Pourquoi c'est intéressant —</b> croisement direct des trois domaines : coût et ROI d'un outil IA, organisation du travail façon gestion de projet sans équipe, stratégie de scaling d'un fondateur solo. Angle concret : ce que révèle ce témoignage sur les limites pratiques de la délégation à des agents IA au-delà du chiffre choc. À nuancer : témoignage individuel, pas une étude.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+  </ol>
+
+  <div class="send-bar">
+    <p>Rien n'est envoyé tant que tu ne cliques pas — ça ouvre une issue GitHub pré-remplie sur <code>CaroRima33/projet-newsletter</code>, à valider toi-même.</p>
+    <a class="send-btn" id="send-btn" href="#" target="_blank" rel="noopener">Envoyer mes retours →</a>
+  </div>
+
+  <footer class="page">
+    <p><b>Ce que deviennent tes votes —</b> le clic "Envoyer" ouvre une issue GitHub avec le label <code>feedback-digest</code> résumant tes votes et commentaires. La boucle de rétro hebdomadaire les relit avec <code>logs/</code> et <code>feedback/</code> pour ajuster <code>docs/SOURCES.md</code> et <code>docs/EDITORIAL.md</code>. Le drapeau <code>flux RSS</code> / <code>fetch direct</code> / <code>recherche web</code> indique comment le sujet a été trouvé — utile pour voir si tu votes différemment selon la méthode.</p>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var STORAGE_KEY = 'veille-digest-2026-08-25';
+    var REPO = 'CaroRima33/projet-newsletter';
+    var items = document.getElementById('items');
+    var itemEls = Array.prototype.slice.call(items.querySelectorAll('.item'));
+    var total = itemEls.length;
+    var progressLabel = document.getElementById('progress-label');
+    var progressBar = document.getElementById('progress-bar');
+    var sendBtn = document.getElementById('send-btn');
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+    function saveState(state) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    var state = loadState();
+
+    function applyStateToDom() {
+      itemEls.forEach(function (item) {
+        var id = item.dataset.itemId;
+        var entry = state[id];
+        if (!entry) return;
+        item.dataset.vote = entry.vote || '';
+        item.querySelectorAll('.vote-btn').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.voteValue === entry.vote));
+        });
+        var hint = item.querySelector('.vote-hint');
+        var commentWrap = item.querySelector('.comment-wrap');
+        var textarea = item.querySelector('textarea');
+        if (entry.vote) {
+          hint.hidden = false;
+          commentWrap.hidden = false;
+        }
+        if (entry.comment) textarea.value = entry.comment;
+      });
+    }
+
+    function updateProgress() {
+      var voted = itemEls.filter(function (item) {
+        return item.dataset.vote === 'utile' || item.dataset.vote === 'pas-utile';
+      }).length;
+      progressLabel.textContent = voted + ' / ' + total + ' votés';
+      progressBar.style.width = Math.round((voted / total) * 100) + '%';
+      sendBtn.href = buildIssueUrl();
+    }
+
+    function buildIssueUrl() {
+      var utiles = [];
+      var pasUtiles = [];
+      var nonVotes = [];
+
+      itemEls.forEach(function (item) {
+        var id = item.dataset.itemId;
+        var entry = state[id] || {};
+        var title = item.dataset.title;
+        var domain = item.dataset.domain;
+        var line = '- **' + title + '** (' + domain + ')';
+        if (entry.comment && entry.comment.trim()) {
+          line += '\n  > ' + entry.comment.trim().replace(/\n/g, '\n  > ');
+        }
+        if (entry.vote === 'utile') utiles.push(line);
+        else if (entry.vote === 'pas-utile') pasUtiles.push(line);
+        else nonVotes.push('- ' + title);
+      });
+
+      var body = '## Feedback digest — 25 août 2026\n\n';
+      body += '### 👍 Utile (' + utiles.length + ')\n' + (utiles.length ? utiles.join('\n') : '_aucun_') + '\n\n';
+      body += '### 👎 Pas utile (' + pasUtiles.length + ')\n' + (pasUtiles.length ? pasUtiles.join('\n') : '_aucun_') + '\n\n';
+      if (nonVotes.length) {
+        body += '### Non voté (' + nonVotes.length + ')\n' + nonVotes.join('\n') + '\n';
+      }
+
+      var params = new URLSearchParams({
+        title: 'Feedback digest — 2026-08-25',
+        body: body,
+        labels: 'feedback-digest'
+      });
+      return 'https://github.com/' + REPO + '/issues/new?' + params.toString();
+    }
+
+    items.addEventListener('click', function (e) {
+      var btn = e.target.closest('.vote-btn');
+      if (!btn) return;
+      var item = btn.closest('.item');
+      var id = item.dataset.itemId;
+      var value = btn.dataset.voteValue;
+      var current = (state[id] && state[id].vote) || '';
+      var newValue = current === value ? '' : value;
+
+      state[id] = state[id] || {};
+      state[id].vote = newValue;
+      saveState(state);
+
+      item.dataset.vote = newValue;
+      item.querySelectorAll('.vote-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.voteValue === newValue));
+      });
+      var hint = item.querySelector('.vote-hint');
+      var commentWrap = item.querySelector('.comment-wrap');
+      hint.hidden = newValue === '';
+      commentWrap.hidden = newValue === '';
+      updateProgress();
+    });
+
+    items.addEventListener('input', function (e) {
+      var textarea = e.target.closest('textarea');
+      if (!textarea) return;
+      var item = textarea.closest('.item');
+      var id = item.dataset.itemId;
+      state[id] = state[id] || {};
+      state[id].comment = textarea.value;
+      saveState(state);
+      sendBtn.href = buildIssueUrl();
+    });
+
+    applyStateToDom();
+    updateProgress();
+  })();
+</script>
+</body>
+</html>
