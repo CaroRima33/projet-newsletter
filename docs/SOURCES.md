@@ -6,9 +6,9 @@ Caroline. Toutes les sources ci-dessous sont à valider par Caroline avant le
 premier cron (scores de départ = estimation + un premier test de fraîcheur réel,
 pas encore de signal d'usage).
 
-Statut : 2026-08-22, mise à jour après un test réel de chaque source (flux RSS
-testés en direct, voir `logs/2026-08-22-collecte.md`). 9 sources actives, 1
-retirée (feed morte), 1 bloquée (à traiter manuellement).
+Statut : 2026-09-06, mise à jour par la rétro hebdomadaire 2026-W36. 8 sources
+actives, 2 retirées (feeds mortes ou sites à l'arrêt), 1 bloquée (à traiter
+manuellement).
 
 **Méthode de collecte, par ordre de priorité** (décidé le 2026-08-22, voir
 `CLAUDE.md`) :
@@ -24,19 +24,19 @@ retirée (feed morte), 1 bloquée (à traiter manuellement).
 
 | Source | Type | Domaine | Flux RSS | Score | Note |
 |---|---|---|---|---|---|
-| Cafétech | Newsletter quotidienne | Tech général / IA | https://cafetech.fr/feed/ | 2 | ⚠️ Flux RSS testé le 2026-08-22 : dernier item daté du 2 juillet 2026, soit ~7 semaines — anormal pour une newsletter dite quotidienne. Homepage bloque le fetch direct (403). À revérifier avant de faire confiance à cette source pour du chaud. |
-| Growthhacking.fr | Communauté / forum | Growth | https://www.growthhacking.fr/latest.rss | 2 | Flux `/latest.rss` fonctionne et est frais (items datés du jour même), mais c'est un forum : le flux "latest" est surtout des demandes de practitioners (recherche de prestataire, questions techniques), pas de l'actualité éditoriale. Nécessite un filtrage éditorial fort, peu de signal brut exploitable tel quel. |
+| ~~Cafétech~~ | Newsletter quotidienne | Tech général / IA | https://cafetech.fr/feed/ | — | **Retirée le 2026-08-30** : flux inchangé (dernier item 2 juillet 2026) sur 9 runs quotidiens consécutifs (2026-08-22 → 2026-08-30, ~9 semaines de retard), homepage en HTTP 403 à chaque fetch direct sur la même période. Source considérée à l'arrêt, plus de vérification périodique tant qu'aucun signal externe n'indique une reprise. |
+| Growthhacking.fr | Communauté / forum | Growth | https://www.growthhacking.fr/latest.rss | 1 | Flux `/latest.rss` fonctionne et reste frais (items datés du jour même), mais confirmé sur 9 runs quotidiens consécutifs (2026-08-22 → 2026-08-30) : 0 sujet retenu à chaque fois, exclusivement des demandes/offres de practitioners (prestataires, alternances, scraping, autopromotion), jamais d'actualité éditoriale. Score baissé de 2 à 1 : le flux "latest" n'est structurellement pas exploitable tel quel pour cette veille. Conservée car seule source growth fournie par Caroline — à revalider avec elle plutôt qu'à retirer unilatéralement. |
 
 ## Sources découvertes (à valider par Caroline)
 
 | Source | Type | Domaine | Flux RSS | Score | Note |
 |---|---|---|---|---|---|
-| ActuIA | Média éditorial | IA | https://www.actuia.com/feed/ | 2 | ⚠️ Testé le 2026-08-22 : dernier article publié le 3 juillet 2026, confirmé aussi sur la page d'accueil (pas juste un flux en retard — le site semble avoir arrêté de publier depuis ~7 semaines). À revérifier périodiquement ; si ça ne reprend pas, à retirer. |
+| ActuIA | Média éditorial | IA | https://www.actuia.com/feed/ | 1 | **Retrait annulé le 2026-09-06** (rétro 2026-W36) : la retirer le 2026-08-30 supposait qu'aucun signal externe n'indiquerait de reprise — or le 2026-09-02 le flux a publié 3 nouveaux articles d'un coup après ~7 semaines de silence, dont un retenu dans le digest du 2026-09-03. Silence à nouveau du 2026-09-03 au 2026-09-06 (4 jours). Réintégrée avec un score bas (1) : source vivante mais très irrégulière (rafales ponctuelles), à revérifier à chaque run plutôt qu'à considérer comme morte. |
 | The Batch (DeepLearning.AI) | Newsletter hebdo | IA | _aucun flux RSS trouvé_ | 3 | Pas de RSS (app Next.js). Fonctionne bien en fetch direct ciblé (WebFetch) : contenu daté et réel confirmé le 2026-08-22 (dernier numéro : 21 août 2026). EN, par Andrew Ng, sérieux. |
 | arXiv — cs.AI | Preprints académiques | IA | https://export.arxiv.org/rss/cs.AI | 2 | Flux officiel arXiv, fonctionne bien mais **vide le week-end** (arXiv ne publie pas samedi/dimanche — confirmé le 2026-08-22, samedi, flux vide). Brut et non vulgarisé : utile pour repérer un papier qui devient un sujet, pas pour la veille quotidienne telle quelle. |
 | International Journal of Project Management (Elsevier) | Revue académique | Gestion de projet | https://rss.sciencedirect.com/publication/science/02637863 | 2 | Flux ScienceDirect fonctionne, remonte de vrais titres d'articles récents, mais sans date fiable dans le flux (rythme de parution par numéro, pas quotidien) et texte complet payant. |
 | Revue française de gestion (Cairn.info) | Revue académique FR | Gestion de projet | _bloqué_ | — | Le site (et son flux RSS) renvoie une page de vérification anti-bot (Cloudflare, HTTP 403) aussi bien en fetch direct qu'en RSS. Pas automatisable sans contourner une protection anti-bot — **retirée de la collecte automatique**, à consulter manuellement de temps en temps si besoin (revue trimestrielle, donc peu d'impact sur une veille quotidienne). |
-| Lenny's Newsletter | Newsletter | Growth / produit | https://www.lennysnewsletter.com/feed | 4 | Flux fiable et frais (dernier item : 18 août 2026), contenu substantiel et à angle affirmé (ex : test critique d'outils IA). EN, référence practitioner reconnue. |
+| Lenny's Newsletter | Newsletter | Growth / produit | https://www.lennysnewsletter.com/feed | 4 | Flux fiable et frais (dernier item : 18 août 2026), contenu substantiel et à angle affirmé (ex : test critique d'outils IA). EN, référence practitioner reconnue. ⚠️ Deux articles de la semaine du 2026-09-01 (podcast GPT-6 Astra le 2026-09-04, "Community Wisdom" le 2026-09-06) intégralement réservés aux abonnés payants, écartés faute de contenu accessible malgré un angle éditorial pertinent — score inchangé pour l'instant, mais si le motif revient souvent un abonnement payant vaudrait la peine d'être discuté avec Caroline. |
 | Bubble Blog | Blog officiel plateforme | No-code | https://bubble.io/blog/rss/ | 2 | Flux frais (items du 19-21 août 2026) mais mélange annonces produit réelles et articles SEO intemporels ("8 meilleurs outils..."). Source primaire donc biaisée — utile pour suivre les annonces Bubble spécifiquement, pas comme seule source no-code. |
 | ~~nocodechris (Substack)~~ | Newsletter practitioner | No-code | https://nocodechris.substack.com/feed | — | **Retirée** : flux testé le 2026-08-22, dernier article publié en juin 2023. Newsletter à l'arrêt. |
 
@@ -48,7 +48,12 @@ mono-plateforme). Si Caroline suit des comptes ou newsletters no-code
 spécifiques en pratique, ce serait la meilleure source à ajouter ici. La
 **gestion de projet** reste également faible en actu datée (les deux sources
 académiques publient par numéro, pas au fil de l'eau, et l'une est
-inaccessible).
+inaccessible). Le **growth** repose désormais quasi entièrement sur Lenny's
+Newsletter (score 4) depuis la baisse de score de Growthhacking.fr (2026-08-30,
+9 runs consécutifs à 0 sujet) — un second angle mort à surveiller si Lenny's
+venait à se tarir, ce qui rend d'autant plus sensible le motif "paywall"
+apparu deux fois cette semaine sur des articles Lenny's par ailleurs
+pertinents (voir note dans le tableau ci-dessus).
 
 ## Historique des ajustements
 
@@ -59,3 +64,34 @@ inaccessible).
   baissés de 3 à 2), nocodechris est retirée (morte depuis 2023), Cairn RFG est
   bloquée par anti-bot (retirée de l'automatisation), Lenny's Newsletter
   confirmée solide (score monté à 4).
+- **2026-08-30** (rétro 2026-W35) — Preuve : `logs/2026-08-22-collecte.md` à
+  `logs/2026-08-30-collecte.md` montrent Cafétech figée au 2 juillet 2026 et
+  ActuIA figée au 7 juillet 2026 sur 9 et 8 runs quotidiens consécutifs
+  respectivement, sans la moindre évolution ni sur le flux RSS ni sur la page
+  d'accueil (403 persistant pour Cafétech). Changement : les deux sources sont
+  retirées de la collecte automatique (au lieu d'une simple baisse de score,
+  le seuil "plusieurs semaines de suite" de la skill retro-hebdo étant
+  largement dépassé et confirmé jour après jour sans variation). Deuxième
+  preuve : Growthhacking.fr à 0 sujet retenu sur les 9 mêmes runs consécutifs,
+  toujours pour la même raison structurelle (flux "latest" = forum de
+  practitioners, pas d'actualité éditoriale). Changement : score baissé de 2 à
+  1, conservée (seule source growth fournie par Caroline) plutôt que retirée.
+- **2026-09-06** (rétro 2026-W36, commit ajouté sur la même branche
+  `retro/2026-W35` car la PR #2 de la semaine précédente n'était pas encore
+  mergée — voir contrat de la skill retro-hebdo) — Preuve :
+  `logs/2026-09-03-collecte.md` montre ActuIA publiant 3 nouveaux articles le
+  2026-09-02 (un retenu dans le digest du jour), après ~7 semaines de silence
+  et alors que le retrait proposé le 2026-08-30 était justifié par "rien ...
+  ne suggère qu'elles redeviendront actives". `logs/2026-09-04-collecte.md` à
+  `2026-09-06-collecte.md` confirment un nouveau silence de 4 jours après
+  cette rafale. Changement : annulation du retrait d'ActuIA décidé le
+  2026-08-30 (la prémisse "site mort" est falsifiée), réintégrée en source
+  active à score bas (1) plutôt qu'à score normal, pour refléter un pattern
+  de rafales imprévisibles plutôt qu'une reprise franche. Le retrait de
+  Cafétech n'est en revanche pas remis en cause : 16 runs consécutifs
+  (2026-08-22 → 2026-09-06, ~10 semaines) sans la moindre évolution, contraste
+  net avec ActuIA qui a bougé. Deuxième preuve : `logs/2026-09-04` et
+  `2026-09-06-collecte.md` signalent chacun un article Lenny's Newsletter
+  autrement pertinent écarté pour mur payant intégral — pas encore un pattern
+  assez net pour changer le score, mais noté dans le tableau pour suivi et
+  comme point de discussion possible avec Caroline (abonnement payant ?).
