@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Digest du 8 septembre — veille Caroline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f6f6;
+    --surface: #ffffff;
+    --text: #1b2027;
+    --text-muted: #5b6470;
+    --border: #dde1e3;
+    --accent: #0f6e6e;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f1ef;
+    --vote-no-bg: #f1f2f2;
+    --vote-no-text: #5b6470;
+    --chip-ia-bg: #efeafb; --chip-ia-text: #5b3fc4;
+    --chip-growth-bg: #fdf0e2; --chip-growth-text: #a05a12;
+    --chip-gdp-bg: #e6f0fa; --chip-gdp-text: #21598f;
+    --chip-nocode-bg: #e6f6ee; --chip-nocode-text: #1f7a4d;
+    --shadow: 0 1px 2px rgba(20, 25, 30, 0.04), 0 4px 14px rgba(20, 25, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12161a;
+      --surface: #191e23;
+      --text: #e7ebee;
+      --text-muted: #9aa4ac;
+      --border: #2a3137;
+      --accent: #4fd1c5;
+      --accent-ink: #0b1a18;
+      --accent-soft: rgba(79, 209, 197, 0.14);
+      --vote-no-bg: #232a30;
+      --vote-no-text: #9aa4ac;
+      --chip-ia-bg: #241f38; --chip-ia-text: #b6a4f2;
+      --chip-growth-bg: #332512; --chip-growth-text: #e8ac6b;
+      --chip-gdp-bg: #16283a; --chip-gdp-text: #8fbfe8;
+      --chip-nocode-bg: #142a1e; --chip-nocode-text: #7fd3a5;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.25);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.5;
+    padding: 2.5rem 1.25rem 5rem;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+
+  header.page { margin-bottom: 2.25rem; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .lede { color: var(--text-muted); font-size: 0.98rem; max-width: 60ch; margin: 0; }
+  .lede b { color: var(--text); font-weight: 600; }
+
+  .progress {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .progress .bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress .bar > span { display: block; height: 100%; background: var(--accent); width: 0%; transition: width 0.35s ease; }
+
+  ol.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+
+  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem 1.3rem; box-shadow: var(--shadow); }
+  .item[data-vote="utile"] { border-color: var(--accent); }
+  .item[data-vote="pas-utile"] { opacity: 0.62; }
+
+  .meta-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.55rem; }
+  .chip { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.03em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 999px; font-weight: 500; }
+  .chip.ia { background: var(--chip-ia-bg); color: var(--chip-ia-text); }
+  .chip.growth { background: var(--chip-growth-bg); color: var(--chip-growth-text); }
+  .chip.gdp { background: var(--chip-gdp-bg); color: var(--chip-gdp-text); }
+  .chip.nocode { background: var(--chip-nocode-bg); color: var(--chip-nocode-text); }
+
+  .method { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--text-muted); }
+  .date { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  h2 { font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 1.22rem; line-height: 1.28; margin: 0 0 0.4rem; text-wrap: balance; }
+  .source-line { font-size: 0.82rem; margin: 0 0 0.7rem; }
+  .source-line a { color: var(--accent); text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+
+  .summary { margin: 0 0 0.6rem; font-size: 0.95rem; }
+  .why { font-size: 0.87rem; color: var(--text-muted); margin: 0 0 1.05rem; padding-left: 0.75rem; border-left: 2px solid var(--border); }
+  .why b { color: var(--text); font-weight: 600; }
+
+  .votes { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  .vote-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.42rem 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .vote-btn:hover { border-color: var(--accent); }
+  .vote-btn.yes[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .vote-btn.no[aria-pressed="true"] { background: var(--vote-no-bg); border-color: var(--border); color: var(--vote-no-text); text-decoration: line-through; }
+  .vote-hint { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--text-muted); }
+  .vote-hint[hidden] { display: none; }
+
+  .comment-wrap { margin-top: 0.9rem; }
+  .comment-wrap[hidden] { display: none; }
+  .comment-wrap label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+  }
+  .comment-wrap textarea {
+    width: 100%;
+    min-height: 3.2rem;
+    resize: vertical;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 0.7rem;
+  }
+  .comment-wrap textarea::placeholder { color: var(--text-muted); }
+
+  .send-bar {
+    position: sticky;
+    bottom: 1.25rem;
+    margin-top: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .send-bar p { margin: 0; font-size: 0.83rem; color: var(--text-muted); flex: 1; min-width: 200px; }
+  .send-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.3rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .send-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+  footer.page {
+    max-width: 720px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer.page b { color: var(--text); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="page">
+    <p class="eyebrow">Veille · no-code · growth · gestion de projet · IA</p>
+    <h1>Digest du 8 septembre 2026</h1>
+    <p class="lede">4 sujets aujourd'hui — ActuIA reprend publication après cinq jours de silence, et Lenny's Newsletter sort de sa série d'articles payants (détail des sources sans retenue dans le digest complet). <b>Utile</b> si tu le retiendrais pour un article, <b>pas utile</b> sinon — un commentaire facultatif apparaît après ton vote. Une fois fini, clique "Envoyer mes retours" en bas : ça ouvre une issue GitHub pré-remplie sur le repo, à valider d'un clic. C'est ce que relit la rétro hebdomadaire pour ajuster les sources et la ligne éditoriale.</p>
+    <div class="progress">
+      <span id="progress-label">0 / 4 votés</span>
+      <span class="bar"><span id="progress-bar"></span></span>
+    </div>
+  </header>
+
+  <ol class="items" id="items">
+
+    <li class="item" data-vote="" data-item-id="actuia-litellm-faille-mcp" data-domain="IA" data-title="Troisième faille critique en quatre mois pour LiteLLM, passerelle largement déployée entre applications et modèles de langage">
+      <div class="meta-row">
+        <span class="chip ia">IA</span>
+        <span class="method">flux RSS</span>
+        <span class="date">07.09.2026</span>
+      </div>
+      <h2>Troisième faille critique en quatre mois pour LiteLLM, passerelle largement déployée entre applications et modèles de langage</h2>
+      <p class="source-line">ActuIA — <a href="https://www.actuia.com/actualite/pourquoi-la-troisieme-faille-litellm-au-kev-concerne-tout-proxy-llm/" target="_blank" rel="noopener">actuia.com</a></p>
+      <p class="summary">La CISA a ajouté au catalogue KEV une faille de contournement d'authentification (CVE-2026-59822) dans le module MCP de LiteLLM, une passerelle open source qui route les appels vers différents modèles de langage. Un en-tête d'autorisation falsifié permet d'accéder aux serveurs d'outils connectés sans authentification valide — la troisième vulnérabilité de LiteLLM inscrite au KEV en quatre mois.</p>
+      <p class="why"><b>Pourquoi c'est intéressant —</b> LiteLLM centralise clés API, budgets et accès aux outils internes des organisations qui l'utilisent, sa compromission expose tout l'écosystème en aval. L'accumulation de failles suggère un déploiement souvent trop léger pour une passerelle critique. Angle possible : vulgariser pourquoi les briques d'infrastructure IA deviennent des cibles à mesure que les usages professionnels s'étendent.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="actuia-mistral-ministeres" data-domain="IA" data-title="L'État français signe un contrat de 6 M€ avec Mistral AI pour des missions de cybersécurité et de lutte contre la fraude">
+      <div class="meta-row">
+        <span class="chip ia">IA</span>
+        <span class="method">flux RSS</span>
+        <span class="date">07.09.2026</span>
+      </div>
+      <h2>L'État français signe un contrat de 6 M€ avec Mistral AI pour des missions de cybersécurité et de lutte contre la fraude</h2>
+      <p class="source-line">ActuIA — <a href="https://www.actuia.com/actualite/mistral-ai-dans-les-ministeres-ce-que-letat-achete-pour-6-meur/" target="_blank" rel="noopener">actuia.com</a></p>
+      <p class="summary">L'État signe un accord de 6 millions d'euros avec Mistral AI pour 2026-2027, prévoyant le détachement d'ingénieurs dans les ministères sur trois chantiers : cybersécurité, détection de fraude, traitement des contentieux de masse. Le contrat prolonge le déploiement de « L'Assistant » et s'inscrit dans le plan cyber de 200 M€ lancé après les cyberattaques contre la DGFiP mi-2026.</p>
+      <p class="why"><b>Pourquoi c'est intéressant —</b> le montant modeste révèle que l'État achète surtout des compétences ponctuelles plutôt qu'une infrastructure massive. L'absence d'exclusivité et les déclarations prudentes des ministres suggèrent une volonté d'éviter une dépendance trop marquée à un seul fournisseur — en tension avec l'objectif affiché de réinternalisation des compétences d'ici 2027.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="actuia-emirats-conseillers-ia" data-domain="IA" data-title="Les Émirats arabes unis approuvent 32 « conseillers IA » gouvernementaux sans en préciser les garde-fous">
+      <div class="meta-row">
+        <span class="chip ia">IA</span>
+        <span class="method">flux RSS</span>
+        <span class="date">07.09.2026</span>
+      </div>
+      <h2>Les Émirats arabes unis approuvent 32 « conseillers IA » gouvernementaux sans en préciser les garde-fous</h2>
+      <p class="source-line">ActuIA — <a href="https://www.actuia.com/actualite/ce-que-lon-sait-des-32-conseillers-dia-du-gouvernement-emirati/" target="_blank" rel="noopener">actuia.com</a></p>
+      <p class="summary">Le gouvernement émirati a approuvé un dispositif de 32 conseillers basés sur l'IA, chargés d'analyser les politiques publiques et intervenant même dans l'émission de décisions ministérielles via de l'IA « agentique ». Ni le fournisseur, ni les modèles utilisés, ni le calendrier de déploiement n'ont été précisés.</p>
+      <p class="why"><b>Pourquoi c'est intéressant —</b> l'article documente précisément ce qui manque plutôt que de relayer l'annonce telle quelle : absence totale d'information sur le contrôle humain entre recommandation et décision finale, comparaison utile avec l'approche française (Albert) cantonnée à l'outillage. Bon exemple pour illustrer la différence entre IA « outil » et IA « décisionnaire ».</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+    <li class="item" data-vote="" data-item-id="lenny-stripe-agent-interne" data-domain="Growth, IA" data-title="Comment Stripe a construit son agent IA interne, utilisé chaque semaine par plus de 10 000 employés">
+      <div class="meta-row">
+        <span class="chip growth">Growth</span>
+        <span class="chip ia">IA</span>
+        <span class="method">flux RSS</span>
+        <span class="date">07.09.2026</span>
+      </div>
+      <h2>Comment Stripe a construit son agent IA interne, utilisé chaque semaine par plus de 10 000 employés</h2>
+      <p class="source-line">Lenny's Newsletter — <a href="https://www.lennysnewsletter.com/p/build-your-own-company-brain-the" target="_blank" rel="noopener">lennysnewsletter.com</a></p>
+      <p class="summary">Sharadh Krishnamurthy, ingénieur chez Stripe, détaille la construction de l'agent IA interne de l'entreprise : une couche de gouvernance organisée autour de « projets », une plateforme de compétences permettant à chaque employé de créer ses propres flux de travail automatisés, et une infrastructure où les permissions d'accès aux données restent individuelles.</p>
+      <p class="why"><b>Pourquoi c'est intéressant —</b> le témoignage explique pourquoi Stripe a choisi de construire sa propre solution plutôt que d'acheter un outil du marché — un choix architectural rarement documenté avec ce niveau de détail. À noter : c'est le témoignage d'un employé de l'entreprise concernée, à traiter avec la distance qu'impose la ligne éditoriale.</p>
+      <div class="votes">
+        <button class="vote-btn yes" type="button" aria-pressed="false" data-vote-value="utile">👍 Utile</button>
+        <button class="vote-btn no" type="button" aria-pressed="false" data-vote-value="pas-utile">👎 Pas utile</button>
+        <span class="vote-hint" hidden>noté</span>
+      </div>
+      <div class="comment-wrap" hidden>
+        <label>Commentaire (facultatif)</label>
+        <textarea placeholder="Pourquoi ce vote ? Un angle en tête, une réserve..."></textarea>
+      </div>
+    </li>
+
+  </ol>
+
+  <div class="send-bar">
+    <p>Rien n'est envoyé tant que tu ne cliques pas — ça ouvre une issue GitHub pré-remplie sur <code>CaroRima33/projet-newsletter</code>, à valider toi-même.</p>
+    <a class="send-btn" id="send-btn" href="#" target="_blank" rel="noopener">Envoyer mes retours →</a>
+  </div>
+
+  <footer class="page">
+    <p><b>Ce que deviennent tes votes —</b> le clic "Envoyer" ouvre une issue GitHub avec le label <code>feedback-digest</code> résumant tes votes et commentaires. La boucle de rétro hebdomadaire les relit avec <code>logs/</code> et <code>feedback/</code> pour ajuster <code>docs/SOURCES.md</code> et <code>docs/EDITORIAL.md</code>. Le drapeau <code>flux RSS</code> / <code>fetch direct</code> / <code>recherche web</code> indique comment le sujet a été trouvé — utile pour voir si tu votes différemment selon la méthode.</p>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var STORAGE_KEY = 'veille-digest-2026-09-08';
+    var REPO = 'CaroRima33/projet-newsletter';
+    var items = document.getElementById('items');
+    var itemEls = Array.prototype.slice.call(items.querySelectorAll('.item'));
+    var total = itemEls.length;
+    var progressLabel = document.getElementById('progress-label');
+    var progressBar = document.getElementById('progress-bar');
+    var sendBtn = document.getElementById('send-btn');
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+    function saveState(state) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    }
+
+    var state = loadState();
+
+    function applyStateToDom() {
+      itemEls.forEach(function (item) {
+        var id = item.dataset.itemId;
+        var entry = state[id];
+        if (!entry) return;
+        item.dataset.vote = entry.vote || '';
+        item.querySelectorAll('.vote-btn').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.voteValue === entry.vote));
+        });
+        var hint = item.querySelector('.vote-hint');
+        var commentWrap = item.querySelector('.comment-wrap');
+        var textarea = item.querySelector('textarea');
+        if (entry.vote) {
+          hint.hidden = false;
+          commentWrap.hidden = false;
+        }
+        if (entry.comment) textarea.value = entry.comment;
+      });
+    }
+
+    function updateProgress() {
+      var voted = itemEls.filter(function (item) {
+        return item.dataset.vote === 'utile' || item.dataset.vote === 'pas-utile';
+      }).length;
+      progressLabel.textContent = voted + ' / ' + total + ' votés';
+      progressBar.style.width = Math.round((voted / total) * 100) + '%';
+      sendBtn.href = buildIssueUrl();
+    }
+
+    function buildIssueUrl() {
+      var utiles = [];
+      var pasUtiles = [];
+      var nonVotes = [];
+
+      itemEls.forEach(function (item) {
+        var id = item.dataset.itemId;
+        var entry = state[id] || {};
+        var title = item.dataset.title;
+        var domain = item.dataset.domain;
+        var line = '- **' + title + '** (' + domain + ')';
+        if (entry.comment && entry.comment.trim()) {
+          line += '\n  > ' + entry.comment.trim().replace(/\n/g, '\n  > ');
+        }
+        if (entry.vote === 'utile') utiles.push(line);
+        else if (entry.vote === 'pas-utile') pasUtiles.push(line);
+        else nonVotes.push('- ' + title);
+      });
+
+      var body = '## Feedback digest — 8 septembre 2026\n\n';
+      body += '### 👍 Utile (' + utiles.length + ')\n' + (utiles.length ? utiles.join('\n') : '_aucun_') + '\n\n';
+      body += '### 👎 Pas utile (' + pasUtiles.length + ')\n' + (pasUtiles.length ? pasUtiles.join('\n') : '_aucun_') + '\n\n';
+      if (nonVotes.length) {
+        body += '### Non voté (' + nonVotes.length + ')\n' + nonVotes.join('\n') + '\n';
+      }
+
+      var params = new URLSearchParams({
+        title: 'Feedback digest — 2026-09-08',
+        body: body,
+        labels: 'feedback-digest'
+      });
+      return 'https://github.com/' + REPO + '/issues/new?' + params.toString();
+    }
+
+    items.addEventListener('click', function (e) {
+      var btn = e.target.closest('.vote-btn');
+      if (!btn) return;
+      var item = btn.closest('.item');
+      var id = item.dataset.itemId;
+      var value = btn.dataset.voteValue;
+      var current = (state[id] && state[id].vote) || '';
+      var newValue = current === value ? '' : value;
+
+      state[id] = state[id] || {};
+      state[id].vote = newValue;
+      saveState(state);
+
+      item.dataset.vote = newValue;
+      item.querySelectorAll('.vote-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.voteValue === newValue));
+      });
+      var hint = item.querySelector('.vote-hint');
+      var commentWrap = item.querySelector('.comment-wrap');
+      hint.hidden = newValue === '';
+      commentWrap.hidden = newValue === '';
+      updateProgress();
+    });
+
+    items.addEventListener('input', function (e) {
+      var textarea = e.target.closest('textarea');
+      if (!textarea) return;
+      var item = textarea.closest('.item');
+      var id = item.dataset.itemId;
+      state[id] = state[id] || {};
+      state[id].comment = textarea.value;
+      saveState(state);
+      sendBtn.href = buildIssueUrl();
+    });
+
+    applyStateToDom();
+    updateProgress();
+  })();
+</script>
+</body>
+</html>
