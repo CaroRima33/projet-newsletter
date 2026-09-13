@@ -31,12 +31,12 @@ manuellement).
 
 | Source | Type | Domaine | Flux RSS | Score | Note |
 |---|---|---|---|---|---|
-| ActuIA | Média éditorial | IA | https://www.actuia.com/feed/ | 1 | **Retrait annulé le 2026-09-06** (rétro 2026-W36) : la retirer le 2026-08-30 supposait qu'aucun signal externe n'indiquerait de reprise — or le 2026-09-02 le flux a publié 3 nouveaux articles d'un coup après ~7 semaines de silence, dont un retenu dans le digest du 2026-09-03. Silence à nouveau du 2026-09-03 au 2026-09-06 (4 jours). Réintégrée avec un score bas (1) : source vivante mais très irrégulière (rafales ponctuelles), à revérifier à chaque run plutôt qu'à considérer comme morte. |
+| ActuIA | Média éditorial | IA | https://www.actuia.com/feed/ | 1 | **Retrait annulé le 2026-09-06** (rétro 2026-W36) : la retirer le 2026-08-30 supposait qu'aucun signal externe n'indiquerait de reprise — or le 2026-09-02 le flux a publié 3 nouveaux articles d'un coup après ~7 semaines de silence, dont un retenu dans le digest du 2026-09-03. Silence à nouveau du 2026-09-03 au 2026-09-06 (4 jours). Réintégrée avec un score bas (1) : source vivante mais très irrégulière (rafales ponctuelles), à revérifier à chaque run plutôt qu'à considérer comme morte. Précision du 2026-09-13 (rétro 2026-W37) : entre le 2026-09-07 et le 2026-09-10, la source a au contraire publié 4 jours de suite avec plusieurs articles de bonne qualité analytique chaque jour — le silence court qui a suivi (vendredi 11 → dimanche 13 septembre, donc incluant tout un week-end) n'est pas comparable au schéma Cafétech et ne doit pas être traité comme un signal d'alerte. Le vrai signal à surveiller reste une absence totale sur plusieurs semaines, pas quelques jours incluant un week-end. |
 | The Batch (DeepLearning.AI) | Newsletter hebdo | IA | _aucun flux RSS trouvé_ | 3 | Pas de RSS (app Next.js). Fonctionne bien en fetch direct ciblé (WebFetch) : contenu daté et réel confirmé le 2026-08-22 (dernier numéro : 21 août 2026). EN, par Andrew Ng, sérieux. |
 | arXiv — cs.AI | Preprints académiques | IA | https://export.arxiv.org/rss/cs.AI | 2 | Flux officiel arXiv, fonctionne bien mais **vide le week-end** (arXiv ne publie pas samedi/dimanche — confirmé le 2026-08-22, samedi, flux vide). Brut et non vulgarisé : utile pour repérer un papier qui devient un sujet, pas pour la veille quotidienne telle quelle. |
 | International Journal of Project Management (Elsevier) | Revue académique | Gestion de projet | https://rss.sciencedirect.com/publication/science/02637863 | 2 | Flux ScienceDirect fonctionne, remonte de vrais titres d'articles récents, mais sans date fiable dans le flux (rythme de parution par numéro, pas quotidien) et texte complet payant. |
 | Revue française de gestion (Cairn.info) | Revue académique FR | Gestion de projet | _bloqué_ | — | Le site (et son flux RSS) renvoie une page de vérification anti-bot (Cloudflare, HTTP 403) aussi bien en fetch direct qu'en RSS. Pas automatisable sans contourner une protection anti-bot — **retirée de la collecte automatique**, à consulter manuellement de temps en temps si besoin (revue trimestrielle, donc peu d'impact sur une veille quotidienne). |
-| Lenny's Newsletter | Newsletter | Growth / produit | https://www.lennysnewsletter.com/feed | 4 | Flux fiable et frais (dernier item : 18 août 2026), contenu substantiel et à angle affirmé (ex : test critique d'outils IA). EN, référence practitioner reconnue. ⚠️ Deux articles de la semaine du 2026-09-01 (podcast GPT-6 Astra le 2026-09-04, "Community Wisdom" le 2026-09-06) intégralement réservés aux abonnés payants, écartés faute de contenu accessible malgré un angle éditorial pertinent — score inchangé pour l'instant, mais si le motif revient souvent un abonnement payant vaudrait la peine d'être discuté avec Caroline. |
+| Lenny's Newsletter | Newsletter | Growth / produit | https://www.lennysnewsletter.com/feed | 4 | Flux fiable et frais (dernier item : 18 août 2026), contenu substantiel et à angle affirmé (ex : test critique d'outils IA). EN, référence practitioner reconnue. ⚠️ Deux articles de la semaine du 2026-09-01 (podcast GPT-6 Astra le 2026-09-04, "Community Wisdom" le 2026-09-06) intégralement réservés aux abonnés payants, écartés faute de contenu accessible malgré un angle éditorial pertinent — score inchangé pour l'instant, mais si le motif revient souvent un abonnement payant vaudrait la peine d'être discuté avec Caroline. ⚠️ Format « Community Wisdom » (compilation hebdomadaire de conseils communautaires) écarté deux fois pour deux raisons différentes (payant le 2026-09-06, puis simplement dépourvu d'avis tranché le 2026-09-13 alors qu'il était accessible) — à écarter par défaut dès identification du format, sans ré-analyser à chaque occurrence : il ne correspond pas au critère d'angle affirmé qui justifie le score 4 de cette source. |
 | Bubble Blog | Blog officiel plateforme | No-code | https://bubble.io/blog/rss/ | 2 | Flux frais (items du 19-21 août 2026) mais mélange annonces produit réelles et articles SEO intemporels ("8 meilleurs outils..."). Source primaire donc biaisée — utile pour suivre les annonces Bubble spécifiquement, pas comme seule source no-code. |
 | ~~nocodechris (Substack)~~ | Newsletter practitioner | No-code | https://nocodechris.substack.com/feed | — | **Retirée** : flux testé le 2026-08-22, dernier article publié en juin 2023. Newsletter à l'arrêt. |
 
@@ -95,3 +95,24 @@ pertinents (voir note dans le tableau ci-dessus).
   autrement pertinent écarté pour mur payant intégral — pas encore un pattern
   assez net pour changer le score, mais noté dans le tableau pour suivi et
   comme point de discussion possible avec Caroline (abonnement payant ?).
+- **2026-09-13** (rétro 2026-W37, commit ajouté sur la même branche
+  `retro/2026-W35` — la PR #2 n'est toujours pas mergée, voir alerte dans le
+  corps de la PR) — Preuve : `logs/2026-09-07-collecte.md` à
+  `2026-09-13-collecte.md` (7 runs). Cafétech reste figée au 2 juillet 2026
+  sur 23 runs consécutifs (2026-08-22 → 2026-09-13, ~10 semaines et demie) —
+  aucune remise en cause du retrait déjà proposé, la tendance ne fait que se
+  renforcer. ActuIA a publié 4 jours de suite (2026-09-07 → 2026-09-10) avec
+  plusieurs articles de bonne qualité chaque jour, puis un silence du
+  2026-09-11 au 2026-09-13 incluant tout un week-end : pas un signal
+  d'alerte, précision ajoutée dans le tableau pour éviter une fausse alerte
+  les prochaines fois qu'un silence court chevauche un week-end. Anomalie
+  arXiv cs.AI signalée les 2026-09-08 et 09 (flux vide deux jours ouvrés de
+  suite, inhabituel) : résolue dès le 2026-09-10, retour à un volume normal
+  — incident ponctuel clos, pas de changement de score, à ne rouvrir qu'en
+  cas de récidive. Lenny's Newsletter : le format "Community Wisdom" a été
+  écarté une deuxième fois (2026-09-13, cette fois accessible mais sans avis
+  tranché) après un premier cas payant le 2026-09-06 — pattern net sur ce
+  format précis, note ajoutée pour l'écarter par défaut. Aucune nouvelle
+  issue `feedback-digest` ni entrée `feedback/2026-W37.md` cette semaine
+  (toujours uniquement l'issue #1 du 2026-08-22) — aucun changement basé sur
+  un retour explicite de Caroline cette semaine.
