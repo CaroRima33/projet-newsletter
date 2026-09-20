@@ -116,3 +116,32 @@ pertinents (voir note dans le tableau ci-dessus).
   issue `feedback-digest` ni entrée `feedback/2026-W37.md` cette semaine
   (toujours uniquement l'issue #1 du 2026-08-22) — aucun changement basé sur
   un retour explicite de Caroline cette semaine.
+- **2026-09-20** (rétro 2026-W38, commit ajouté sur la même branche
+  `retro/2026-W35` — la PR #2 n'est toujours pas mergée, 4e cycle de rétro
+  consécutif, voir alerte mise à jour dans le corps de la PR) — Preuve :
+  `logs/2026-09-14-collecte.md` à `logs/2026-09-20-collecte.md` (7 runs).
+  Cafétech reste figée au 2 juillet 2026 sur 30 runs consécutifs
+  (2026-08-22 → 2026-09-20, ~11 semaines) — retrait déjà proposé
+  reconfirmé, aucun changement supplémentaire. Growthhacking.fr : 0 sujet
+  retenu sur les 7 runs, toujours exclusivement des demandes/offres de
+  practitioners — score 1 déjà proposé reconfirmé. ActuIA : nouveau silence
+  de 8 jours (2026-09-11 → 2026-09-18, au-delà d'un simple week-end cette
+  fois), puis reprise en rafale le 2026-09-18 (5 articles) suivie d'une
+  anomalie le 2026-09-20 où 10 items supplémentaires datés du 2026-09-18
+  sont apparus dans le flux un jour après coup (voir
+  `logs/2026-09-20-collecte.md` et la nouvelle consigne de déduplication
+  par guid dans `prompts/veille-collecte.md`). Le pattern « rafales
+  imprévisibles » déjà noté le 2026-09-06 se confirme et s'accentue plutôt
+  qu'il ne se dément — pas de changement de score (1 déjà bas), pas de
+  nouveau retrait à proposer non plus. Lenny's Newsletter : le format
+  « Community Wisdom » a été écarté une troisième fois (2026-09-20), même
+  motif que les deux précédentes occurrences — confirme la note déjà
+  ajoutée, aucun changement. Une nouvelle issue `feedback-digest` (#3,
+  digest du 2026-09-11, créée le 2026-09-13 après le run de la rétro
+  2026-W37 donc non traitée jusqu'ici) contient un commentaire explicite
+  suggérant un tag « légal »/« gouvernance » pour ce type de contenu — un
+  seul vote et un seul commentaire, insuffisant comme preuve de pattern, et
+  il s'agit d'une fonctionnalité d'affichage (tags sur `site/digests/`) plutôt
+  que d'un critère de score de source ou de ton éditorial : hors du
+  périmètre des fichiers que la rétro ajuste. Noté ici pour ne pas le
+  perdre, à réévaluer si le même type de demande revient.
